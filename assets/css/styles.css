@@ -2,6 +2,7 @@ body {
   text-align: center;
   margin: auto;
   font-family: 'Bubblegum Sans';
+  padding: 10px;
 }
 
 .title {
@@ -22,4 +23,11 @@ body {
 }
 form {
   padding:10px;
+}
+.btn-success{
+  background-color:#469487;
+}
+.btn-annuler{
+  background-color:#df5a4b;
+  color:white;
 }

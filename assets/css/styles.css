@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+  margin: auto;
+  font-family: 'Bubblegum Sans';
+}
+
+.title {
+  background-color: rgba(108,117,125,0.8);
+}
+
+#content {
+  color: black!important;
+  opacity: 1;
+}
+.form-label{
+  text-align: left!important;
+}
+
+.btn{
+  width:30%;
+  margin:10px;
+}
+form {
+  padding:10px;
+}

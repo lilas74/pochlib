@@ -40,3 +40,15 @@ form {
 }
 hr{border-top:
 none;}
+
+i{
+  position:absolute;
+  right:10px;
+ top:0px;
+  font-size:25px;
+  color:green;
+}
+.card img{
+  max-width:50%;
+
+}

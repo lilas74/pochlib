@@ -80,7 +80,7 @@ $(document).ready(function () {
                         alert("Pas de résultat trouvé, merci d'effectuer une nouvelle recherche");
                     } else {
                         displayBooksResult(response);
-                        console.log(response.items)
+
 
                     }
                 },
@@ -112,8 +112,6 @@ $(document).ready(function () {
             }
             author = book.volumeInfo.authors;
             bookImage = (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.thumbnail : defaultImageSrc;
-            book.bool = bool;
-
 
 
             book1 = response.items[i + 1];
@@ -128,14 +126,14 @@ $(document).ready(function () {
             }
             author1 = book1.volumeInfo.authors;
             bookImage1 = (book1.volumeInfo.imageLinks) ? book1.volumeInfo.imageLinks.thumbnail : defaultImageSrc;
-            book1.bool = bool;
+
             document.getElementById("booksList").innerHTML += `<div class="card-group">` +
                 formattingSearchResults(
                     title,
                     identifier,
                     author,
                     description,
-                    bookImage,
+                    bookImage
                 ) +
                 formattingSearchResults(
                     title1,
@@ -146,8 +144,9 @@ $(document).ready(function () {
                 ) +
                 '</div>';
 
-            savedBook(title,identifier,author,description,bookImage,bool);
-            savedBook(title1,identifier1,author1,description1,bookImage1,bool);
+
+                //savedBook(title,identifier,author,description,bookImage,bool)
+               // savedBook(title1,identifier1,author1,description1,bookImage1,bool)
 
         }
     }
@@ -155,39 +154,31 @@ $(document).ready(function () {
     return false;
 });
 
-const iClicked = (bool) => {
-    bool = true;
-    console.log(bool)
-}
 
-function savedBook(title,identifier,author,description,bookImage,bool) {
-     book = {
-        title,
-        identifier,
-        author,
-        description,
-        bookImage,
-        bool,
-    };
+let booksSaved = [];
+
+function savedBook(book) {
+
     if (sessionStorage.getItem("booksSaved") === null) {
-        let booksSaved = [];
+
         booksSaved.push(book);
         sessionStorage.setItem("booksSaved", JSON.stringify(booksSaved));
-
+        console.log(booksSaved);
     } else {
-        let booksSaved = JSON.parse(sessionStorage.getItem("booksSaved)"));
-
+        booksSaved = JSON.parse(sessionStorage.getItem("booksSaved)"));
+        console.log(booksSaved);
     }
-   document.getElementById('content').innerHTML +=`<div class="card-group">`+ formattingSearchResults(
+
+    document.getElementById('content').innerHTML +=  "<div>" + formattingSearchResults(
         title,
         identifier,
         author,
         description,
         bookImage,
-       bool
-    )
-    +`</div>`
+
+        )+"</div>";
 }
+
 function formattingSearchResults(
     title,
     identifier,
@@ -195,17 +186,44 @@ function formattingSearchResults(
     description,
     bookImage,
 ) {
-    bool = false;
-    let cards = `<div class="card" >
-<div class="card-body m-auto">
-<i class="far fa-bookmark fa-2x" onclick="savedBookbutton(${bool})"></i>
+let titre = title;
+ let cards = `<div class="card">
+<div class="card-body m-auto" id="book">
+<button class="but" onclick="saveResults()"><i class="far fa-bookmark fa-2x" ></i></button>
 <h5 class="card-title">Titre : ${title}</h5>
- <h5>Id : ${identifier} ${bool}</h5>
+ <h5>Id : ${identifier}</h5>
  <p>Auteur : ${author}</p>
-    <p class="card-text text-justify">Description :  ${description}</p>
+ <p class="card-text text-justify">Description :  ${description}</p>
  <img class="d-xl-flex m-auto card-img-top w-60 d-block h-70" src=${bookImage} alt="...">
 </div>
 </div>`;
 
-    return cards;
+ return cards;
 }
+let element = document.querySelectorAll(".but");
+let  button = document.createElement('button');
+
+
+
+function saveResults(){
+    console.log("cliqué");
+}
+/*handleSaveBook = event => {
+    event.preventDefault();
+
+    const bookID = event.target.getAttribute('data-id')
+
+    const newState = {...this.state}
+
+    let targetBook = this.state.results.filter(book => book.id === bookID)
+    // Parses out book data from results by book id
+
+    const newBook = {
+        title: targetBook[0].volumeInfo.title,
+        authors: targetBook[0].volumeInfo.authors,
+        description: targetBook[0].volumeInfo.description,
+        image: targetBook[0].volumeInfo.imageLinks.thumbnail,
+        link: targetBook[0].volumeInfo.infoLink
+    }
+    // Instantiates new object formatted per the db schema.
+}*/

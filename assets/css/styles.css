@@ -7,48 +7,58 @@ body {
 
 .title {
   background-color: #eff0f4;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0,0.2);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 #content {
-  color: black!important;
+  color: black !important;
   opacity: 1;
 }
-.form-label{
-  text-align: left!important;
+
+.form-label {
+  text-align: left !important;
 }
 
-.btn{
-  width:30%;
-  margin:10px;
+.btn {
+  width: 30%;
+  margin: auto;
+
 }
+
 form {
-  padding:10px;
+  padding: 10px;
 }
-.btn-success{
-  background-color:#469487;
-  border:none;
+
+.btn-success {
+  background-color: #469487;
+  border: none;
 
 }
-.btn-annuler{
-  background-color:#df5a4b;
-  color:white;
-}
-#content{
-  border-top:1px solid gray;
-  margin-top:10px;
-}
-hr{border-top:
-none;}
 
-i{
-  position:absolute;
-  right:10px;
- top:0px;
-  font-size:25px;
-  color:green;
+.btn-annuler {
+  background-color: #df5a4b;
+  color: white;
 }
-.card img{
-  max-width:50%;
+
+#content {
+  border-top: 1px solid gray;
+  margin-top: 10px;
+}
+
+hr {
+  border-top:
+    none;
+}
+
+i {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  font-size: 25px;
+  color: green;
+}
+
+.card img {
+  max-width: 50%;
 
 }

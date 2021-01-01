@@ -1,3 +1,5 @@
+
+
 //Création d'un bouton pour ajouter un livre au chargement de la page
 const addBookButton = document.createElement("button");
 addBookButton.innerHTML = "Ajouter un livre";
@@ -44,4 +46,16 @@ $("#addBookButton").click(function () {
 
 });
 $("#searchBookForm").append(searchBookResults);
+
 //Ajout des cards
+const card = `<div class="card">
+<div class="card-body m-auto" id="book">
+<button id="" class="button" onclick=""><i class="far fa-bookmark fa-2x"></i></button>
+<h5 class="card-title">Titre : </h5>
+ <h5>Id : </h5>
+ <p>Auteur : </p>
+ <p class="card-text text-justify">Description :  </p>
+ <img class="card-img-bottom" src="" alt="">
+</div>
+</div>`;
+

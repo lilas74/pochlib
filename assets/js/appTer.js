@@ -48,14 +48,48 @@ $("#addBookButton").click(function () {
 $("#searchBookForm").append(searchBookResults);
 
 //Ajout des cards
-const card = `<div class="card">
-<div class="card-body m-auto" id="book">
-<button id="" class="button" onclick=""><i class="far fa-bookmark fa-2x"></i></button>
-<h5 class="card-title">Titre : </h5>
- <h5>Id : </h5>
- <p>Auteur : </p>
- <p class="card-text text-justify">Description :  </p>
- <img class="card-img-bottom" src="" alt="">
-</div>
-</div>`;
+const formattingSearchResults = (obj) => {
+    const cards = document.createElement("div");
+    //document.getElementById("searchBookResults").appendChild(cards);
+    cards.className = "card";
+    cards.id = obj.identifier;
+
+    const cardBody = document.createElement("div");
+    cardBody.className = "card-body m-auto";
+    cards.appendChild(cardBody);
+
+    const title = document.createElement("h5");
+    title.className = "card-title";
+    title.innerHTML = `Titre : ${obj.title}`;
+    cardBody.appendChild(title);
+
+    const identifier = document.createElement("h5");
+    identifier.className = "";
+    identifier.innerHTML = `Id : ${obj.identifier}`;
+    cardBody.appendChild(identifier);
+
+    const description = document.createElement("p");
+    description.className = "card-text text-justify";
+    description.innerHTML = `Description : ${obj.description}`;
+    cardBody.appendChild(description);
+
+    const cardImage = document.createElement("img");
+    cardImage.src = obj.bookImage;
+    cardImage.className = "card-img-bottom";
+    cards.appendChild(cardImage);
+
+
+    const icon = document.createElement("button");
+    cardBody.appendChild(icon);
+    icon.className = "button";
+    icon.innerHTML = "<i class='far fa-bookmark fa-2x'></i>";
+
+
+
+    icon.onclick = function () {
+        saveBook(obj);
+        console.log(obj.identifier)
+    }
+    return cards;
+}
 

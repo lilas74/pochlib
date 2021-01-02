@@ -62,3 +62,6 @@ i {
   max-width: 50%;
 
 }
+.card button {
+  border:none;
+}

@@ -67,43 +67,57 @@
     const displaySearchResults = (array, target) => {
         for (let i = 0; i < array.length; i += 2) {
             let cardGroup = document.createElement("div");
-            cardGroup.className = "card-group";
+            cardGroup.className = "card-group content";
             document.getElementById(target).appendChild(cardGroup);
             cardGroup.appendChild(formattingSearchResults(array[i]));
-            cardGroup.appendChild(formattingSearchResults(array[i + 1]));
+            cardGroup.appendChild(formattingSearchResults(array[i+1]));
 
         }
     }
 
     const saveBook = (obj) => {
         savedBook.push(obj);
-        sessionStorage.setItem(obj.identifier, JSON.stringify(obj))
-
+        sessionStorage.setItem(obj.identifier, JSON.stringify(obj));
     }
     const displaySavedBook = () => {
+        bookList.innerHTML = "";
+        document.getElementById("bookList").innerHTML = "";
+        //let allBookDiv = document.createElement("div");
+         for (let i = 0; i < sessionStorage.length; i++) {
+             const key = sessionStorage.key(i);
+             //const cardGroup = document.createElement("div");
+            //cardGroup.className = "card-group";
+            //document.getElementById("content").appendChild(cardGroup);
+            //cardGroup.appendChild(formattingSavedResults(JSON.parse(sessionStorage.getItem(key))));
+            //cardGroup.appendChild(formattingSavedResults(JSON.parse(sessionStorage.getItem(key))));
+             document.getElementById("bookList").appendChild(formattingSavedResults(JSON.parse(sessionStorage.getItem(key))));
 
-        for (let i = 0; i < sessionStorage.length; i++) {
-            const key = sessionStorage.key(i);
-            let cardGroup = document.createElement("div");
-            cardGroup.className = "card-group";
-            document.getElementById("content").appendChild(cardGroup);
-            cardGroup.appendChild(formattingSearchResults(JSON.parse(sessionStorage.getItem(key))));
+         }
+        const content = $("#content .card");
+        for(let i = 0 ; i < content.length ; i+=2){
+            const cardGroupOne = document.createElement("div");
+            cardGroupOne.className = "card-group";
+            document.getElementById("bookList").appendChild(cardGroupOne);
+            if(content[i+1]){
+                cardGroupOne.appendChild(content[i]);
+                cardGroupOne.appendChild(content[i+1]);
+            }else {
+                cardGroupOne.appendChild(content[i]);
+            }
+
 
         }
     }
-
     displaySavedBook();
 
-    $("#content .button i").click(function () {
-        console.log(obj.id + "jel");
-
-
-    });
-
-    $("#content .button i").className = "fas fa-trash-alt";
-
-    const listItems = document.querySelectorAll("#content .button i")
-    for(let i = 0; i < listItems.length; i++) {
-        listItems[i].className = "fas fa-trash-alt 2x";
-    }
-
+const removedBook = (key) => {
+    sessionStorage.removeItem(key);
+}
+/*const content = $("#content .card");
+for(let i = 0 ; i < content.length ; i+=2){
+    const cardGroupOne = document.createElement("div");
+    cardGroupOne.className = "card-group";
+    document.getElementById("content").appendChild(cardGroupOne);
+    cardGroupOne.appendChild(content[i]);
+    cardGroupOne.appendChild(content[i+1]);
+}*/

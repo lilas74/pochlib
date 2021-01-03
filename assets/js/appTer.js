@@ -68,6 +68,11 @@ const formattingSearchResults = (obj) => {
     identifier.innerHTML = `Id : ${obj.identifier}`;
     cardBody.appendChild(identifier);
 
+    const author = document.createElement("p");
+    author.className = "";
+    author.innerHTML = `Auteur(e) : ${obj.author}`;
+    cardBody.appendChild(author);
+
     const description = document.createElement("p");
     description.className = "card-text text-justify";
     description.innerHTML = `Description : ${obj.description}`;
@@ -85,11 +90,62 @@ const formattingSearchResults = (obj) => {
     icon.innerHTML = "<i class='far fa-bookmark fa-2x'></i>";
 
 
-
     icon.onclick = function () {
         saveBook(obj);
-        console.log(obj.identifier)
+        console.log(obj.identifier);
+        displaySavedBook();
     }
     return cards;
 }
+const formattingSavedResults = (obj) => {
+    const cardsSaved = document.createElement("div");
+    //document.getElementById("searchBookResults").appendChild(cards);
+    cardsSaved.className = "card";
+    cardsSaved.id = obj.identifier;
 
+    const cardBodySaved = document.createElement("div");
+    cardBodySaved.className = "card-body m-auto";
+    cardsSaved.appendChild(cardBodySaved);
+
+    const titleBookSaved = document.createElement("h5");
+    titleBookSaved.className = "card-title";
+    titleBookSaved.innerHTML = `Titre : ${obj.title}`;
+    cardBodySaved.appendChild(titleBookSaved);
+
+    const identifierSaved = document.createElement("h5");
+    identifierSaved.className = "";
+    identifierSaved.innerHTML = `Id : ${obj.identifier}`;
+    cardBodySaved.appendChild(identifierSaved);
+
+    const authorSaved = document.createElement("p");
+    authorSaved.className = "";
+    authorSaved.innerHTML = `Auteur(e) : ${obj.author}`;
+    cardBodySaved.appendChild(authorSaved);
+
+    const descriptionSaved = document.createElement("p");
+    descriptionSaved.className = "card-text text-justify";
+    descriptionSaved.innerHTML = `Description : ${obj.description}`;
+    cardBodySaved.appendChild(descriptionSaved);
+
+    const cardImageSaved = document.createElement("img");
+    cardImageSaved.src = obj.bookImage;
+    cardImageSaved.className = "card-img-bottom";
+    cardsSaved.appendChild(cardImageSaved);
+
+    const iconTrash = document.createElement("button");
+    cardBodySaved.appendChild(iconTrash);
+    iconTrash.className = "button";
+    iconTrash.innerHTML = "<i class='fas fa-trash-alt'></i>";
+
+
+    iconTrash.onclick = function () {
+       console.log(obj.identifier);
+        removedBook(obj.identifier);
+        displaySavedBook();
+    }
+    return cardsSaved;
+}
+
+const bookList =  document.createElement("div");
+document.getElementById("content").appendChild(bookList)
+bookList.id = "bookList";

@@ -17,6 +17,7 @@
 
     const searchBook = () => {
         results = [];
+
         if (searchTitle == null ||
             searchAuthor == null ||
             searchTitle == "" ||
@@ -43,7 +44,7 @@
                             results.push(livre);
 
                         }
-                        displaySearchResults(results, "searchBookResults");
+                        displaySearchResults(results, "booksList");
                     }
                 },
                 error: function () {
@@ -58,7 +59,9 @@
     $("#search-button").click(function () {
         searchTitle = $("#bookTitle").val();
         searchAuthor = $("#author").val();
+        document.getElementById("booksList").innerHTML = "";
         searchBook();
+
         document.getElementById("searchBookResults").style.visibility = "visible";
         document.getElementById("searchBookResults").style.display = "block";
 

@@ -53,14 +53,14 @@ hr {
 i {
   position: absolute;
   right: 10px;
-  top: 0px;
+  top: 10px;
   font-size: 25px;
   color: green;
 }
-
 .card img {
-  max-width: 50%;
-
+  width:150px;
+  height:190px;
+  padding-bottom:10px;
 }
 .card button {
   border:none;

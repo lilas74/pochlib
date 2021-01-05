@@ -35,9 +35,11 @@
                             book = response.items[i];
                             let livre = new Object();
                             livre.identifier = book.id;
-                            livre.title = book.volumeInfo.title;
+                            livre.title = (book.volumeInfo.title === undefined) ? livre.title = "" : livre.title = (book.volumeInfo.title.length > 60) ?
+                                (book.volumeInfo.title.substring(0, 60) + "...") :
+                                book.volumeInfo.title;
                             livre.description = (book.volumeInfo.description === undefined) ? livre.description = "" : livre.description = (book.volumeInfo.description.length > 200) ?
-                                book.volumeInfo.description.substring(0, 200) :
+                                (book.volumeInfo.description.substring(0, 200) + "...") :
                                 book.volumeInfo.description;
                             livre.author = book.volumeInfo.authors;
                             livre.bookImage = (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.thumbnail : defaultImageSrc;
@@ -70,7 +72,7 @@
     const displaySearchResults = (array, target) => {
         for (let i = 0; i < array.length; i += 2) {
             let cardGroup = document.createElement("div");
-            cardGroup.className = "card-group content";
+            cardGroup.className = "card-deck content";
             document.getElementById(target).appendChild(cardGroup);
             cardGroup.appendChild(formattingSearchResults(array[i]));
             cardGroup.appendChild(formattingSearchResults(array[i+1]));
@@ -99,7 +101,7 @@
         const content = $("#content .card");
         for(let i = 0 ; i < content.length ; i+=2){
             const cardGroupOne = document.createElement("div");
-            cardGroupOne.className = "card-group";
+            cardGroupOne.className = "card-deck";
             document.getElementById("bookList").appendChild(cardGroupOne);
             if(content[i+1]){
                 cardGroupOne.appendChild(content[i]);

@@ -51,7 +51,7 @@ const searchBook = () => {
                         livre.description = (book.volumeInfo.description === undefined) ? livre.description = "Information manquante" : livre.description = (book.volumeInfo.description.length > 200) ?
                             (book.volumeInfo.description.substring(0, 200) + "...") :
                             book.volumeInfo.description;
-                        livre.author = book.volumeInfo.authors[0];
+                        livre.author = (book.volumeInfo.authors===undefined) ?livre.author ="":book.volumeInfo.authors[0];
                         livre.bookImage = (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.thumbnail : defaultImageSrc;
                         results.push(livre);
 
@@ -103,6 +103,15 @@ const displaySearchResults = (array, target) => {
  * @param obj
  */
 const saveBook = (obj) => {
+    let keyObj = obj.identifier;
+    console.log("Key objet : "+keyObj);
+    for(let i = 0 ; i < sessionStorage.length;i++){
+        const key = sessionStorage.key(i);
+        if(key === keyObj){
+            console.log(key === keyObj)
+            alert("Vous ne pouvez pas ajouter deux fois le même livre");
+        }
+    }
     savedBook.push(obj);
     sessionStorage.setItem(obj.identifier, JSON.stringify(obj));
 }
@@ -133,20 +142,13 @@ const displaySavedBook = () => {
 
     }
 }
-
 displaySavedBook();
+
 /**
  * remove items function
  * @param key
  */
 const removedBook = (key) => {
     sessionStorage.removeItem(key);
+
 }
-/*const content = $("#content .card");
-for(let i = 0 ; i < content.length ; i+=2){
-    const cardGroupOne = document.createElement("div");
-    cardGroupOne.className = "card-group";
-    document.getElementById("content").appendChild(cardGroupOne);
-    cardGroupOne.appendChild(content[i]);
-    cardGroupOne.appendChild(content[i+1]);
-}*/

@@ -121,8 +121,8 @@ const formattingSearchResults = (obj) => {
 
   //click function to saved book in the pochlist
   icon.onclick = function () {
+    displaySavedBook();
     saveBook(obj);
-    console.log(obj.identifier);
     displaySavedBook();
   };
   return cards;
@@ -180,7 +180,7 @@ const formattingSavedResults = (obj) => {
    * onclick function to remove book from the pochList
    */
   iconTrash.onclick = function () {
-    console.log(obj.identifier);
+
     removedBook(obj.identifier);
     displaySavedBook();
   };

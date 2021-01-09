@@ -170,7 +170,9 @@ hr {
         margin: auto;
         width: 100%;
     }
-
+#searchBookResults{
+    margin:auto;
+}
     .card-deck {
         width: 100%;
 

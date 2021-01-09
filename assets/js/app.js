@@ -40,7 +40,7 @@ const formDiv = `<div class="text-left" id="searchBookForm">
  * Create a div to store the book result search
  * @type {string}
  */
-const searchBookResults = `<div id="searchBookResults">
+const searchBookResults = `<div id="searchBookResults" class="col-lg-11">
             <h3 class="text-center h3">Resultats de recherche</h3>
             <div id="booksList" class="cardsGroup row"></div>
             </div>`;
@@ -194,5 +194,5 @@ const formattingSavedResults = (obj) => {
 const bookList = document.createElement("div");
 document.getElementById("content").appendChild(bookList);
 bookList.id = "bookList";
-bookList.className = "row";
+bookList.className = "row col-lg-11";
 

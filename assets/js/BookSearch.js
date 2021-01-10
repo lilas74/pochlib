@@ -104,12 +104,10 @@ const displaySearchResults = (array, target) => {
  */
 const saveBook = (obj) => {
     let keyObj = obj.identifier;
-    console.log("Key objet : "+keyObj);
-    for(let i = 0 ; i < sessionStorage.length;i++){
+       for(let i = 0 ; i < sessionStorage.length;i++){
         const key = sessionStorage.key(i);
         if(key === keyObj){
-            console.log(key === keyObj)
-            alert("Vous ne pouvez pas ajouter deux fois le même livre");
+           alert("Vous ne pouvez pas ajouter deux fois le même livre");
         }
     }
     savedBook.push(obj);
@@ -138,7 +136,6 @@ const displaySavedBook = () => {
         } else {
             cardGroupOne.appendChild(content[i]);
         }
-
 
     }
 }

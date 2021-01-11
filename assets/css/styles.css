@@ -31,7 +31,7 @@ hr {
     margin: 1em 0.5em;
     border-top: solid #e2e2e2 2px;
     padding-top: 0.5em;
-    margin-top:20px!important;
+   margin: 20px auto;
 }
 
 .title {

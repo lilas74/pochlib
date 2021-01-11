@@ -20,12 +20,18 @@ hr {
     margin-top: 10px;
     color: black !important;
     opacity: 1;
-}
 
+
+}
+#bookList {
+    padding:0px 0px;
+    margin:0 auto;
+}
 #searchBookResults {
     margin: 1em 0.5em;
     border-top: solid #e2e2e2 2px;
     padding-top: 0.5em;
+    margin-top:20px!important;
 }
 
 .title {

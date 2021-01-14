@@ -1,227 +1,221 @@
 body {
-    text-align: center;
-    margin: auto;
-    font-family: 'Bubblegum Sans';
-    padding: 10px;
+  text-align: center;
+  margin: auto;
+  font-family: "Bubblegum Sans";
+  padding: 10px;
 }
 
 form {
-    padding: 10px;
+  padding: 10px;
 }
 
 hr {
-    border-top: none;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  border-top: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #content {
-    border-top: 2px solid #e2e2e2;
-    margin-top: 10px;
-    color: black !important;
-    opacity: 1;
-
-
+  border-top: 2px solid #e2e2e2;
+  margin-top: 10px;
+  color: black !important;
+  opacity: 1;
 }
+
 #bookList {
-    padding:0px 0px;
-    margin:0 auto;
+  padding: 0px 0px;
+  margin: 0 auto;
 }
+#bookList .card-title {
+  width: 85%;
+}
+
 #searchBookResults {
-    margin: 1em 0.5em;
-    border-top: solid #e2e2e2 2px;
-    padding-top: 0.5em;
-   margin: 20px auto;
+  margin: 1em 0.5em;
+  border-top: solid #e2e2e2 2px;
+  padding-top: 0.5em;
+  margin: 20px auto;
 }
 
 .title {
-    background-color: #eff0f4;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  background-color: #eff0f4;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .form-label {
-    text-align: left !important;
-    margin-top:0.5rem;
+  text-align: left !important;
+  margin-top: 0.5rem;
 }
 
 .btn {
-    width: 40%;
-    margin: auto;
+  width: 40%;
+  margin: auto;
 }
 
 .btn-success {
-    background-color: #469487;
-    border: none;
-
+  background-color: #469487;
+  border: none;
 }
 
 .btn-annuler {
-    background-color: #df5a4b;
-    color: white;
-}
-
-
-.card button {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 25px;
-    background-color: white;
-    border: none;
-    font-size: 25px;
-}
-
-.card img {
-    width: 150px;
-    height: 190px;
-    padding-bottom: 10px;
+  background-color: #df5a4b;
+  color: white;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   /* max-width: 47%;*/
-    /*background-color:rgba(18,31,31,0.1);*/
-    /*border: 5px solid;
-    border-image: conic-gradient(red, yellow, lime, aqua, blue, magenta, red) 1;*/
-    /*border: 10px solid;
-    border-image: url(https://images.pexels.com/photos/2925304/pexels-photo-2925304.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260) 60 30;*/
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.card:hover{
-    box-shadow: 0 0 11px rgba(33,33,33,.5);
+.card button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 25px;
+  background-color: white;
+  border: none;
+  font-size: 25px;
+}
+.card img {
+  width: 150px;
+  height: 190px;
+  padding-bottom: 10px;
+}
+.card:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+}
+.card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-title {
-    display: inline-block;
-    width: 90%;
-    overflow: auto;
-    min-height: 3.5em;
-
+  display: inline-block;
+  width: 90%;
+  overflow: auto;
+  min-height: 3.5em;
 }
-
-#bookList .card-title {
-    width: 85%;
-}
-
-.card p {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    /* number of lines to show */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
 
 .card-deck {
-    /*margin-bottom: 0.5em;
-    margin-right: -5px !important;
-    margin-left: -5px !important;
-    margin: 0 auto;*/
-    padding: 0px;
-    margin:0 auto;
+  padding: 0px;
+  margin: 0 auto;
+}
+.card-deck .card {
+  margin: 5px auto;
 }
 
 .fa-bookmark {
-    color: green;
+  color: green;
 }
-
 .fa-bookmark:hover {
-    color: #022102;
-
+  color: #022102;
 }
 
 .fa-trash-alt {
-    color: #1d2124;
+  color: #1d2124;
 }
-
 .fa-trash-alt:hover {
-    color: #1607e7;
+  color: #1607e7;
 }
 
 .livre-identifier {
-    font-size: 18px;
+  font-size: 18px;
 }
+
 .card-img-bottom {
-    width: 200px; /* largeur de l'image */
-    height: auto; /* hauteur de l'image */
-    -webkit-transition: .3s ease-in-out !important;
-    transition: .3s ease-in-out !important;
+  width: 200px;
+  height: auto;
+  -webkit-transition: 0.3s ease-in-out !important;
+  transition: 0.3s ease-in-out !important;
 }
-.card-img-bottom:hover  {
-    width: 200px; /* on affiche l'image au carré */
-    height: 200px;
-    border-radius: 50%;
+.card-img-bottom:hover {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
-.card-deck .card {
-    margin:5px auto;
-}
-.col-md-5{
-    padding:0px;
+
+.col-md-5 {
+  padding: 0px;
 }
 
 @media screen and (min-width: 200px) and (max-width: 640px) {
-    .card-title {
-        min-height: 0px;
-    }
+  .card-title {
+    min-height: 0px;
+  }
 
-    .card {
-        max-width: 100%;
-    }
+  .card {
+    max-width: 100%;
+  }
 }
-
 @media (min-width: 1200px) {
-    #bookList {
-        margin: auto;
-        width: 100%;
-    }
-#searchBookResults{
-    margin:auto;
-}
-    .card-deck {
-        width: 100%;
+  #bookList {
+    margin: auto;
+    width: 100%;
+  }
 
-    }
-    .card {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        -webkit-transition: .3s ease-in-out;
-        transition: .3s ease-in-out;
-    }
-    .card:hover{
-        -webkit-transform: scale(1.3);
-        transform: scale(1.3);
-        z-index: 1
-    }
-    .card-deck .card{
-        margin: 0 0;
-    }
+  #searchBookResults {
+    margin: auto;
+  }
+
+  .card-deck {
+    width: 100%;
+  }
+  .card-deck .card {
+    margin: 0 0;
+  }
+
+  .card {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+  .card:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+    z-index: 1;
+  }
 }
-@media screen and (min-width: 765px) and (max-width: 1024px){
-    .card,.livre-identifier{
-        font-size: 14px;
-    }
-    .card-title{
-        min-height: 2em;
-        font-size:16px;
-    }
-    .card img{
-        width: 100px;
-        height: 150px;
-    }
-    .card-body{
-        padding-bottom: 0rem;
-    }
-    .title{
-        font-size:2rem;
-    }
-    .h2,.h3{
-        font-size: 1.5rem;
-    }
-    #bookForm{
-        line-height: 1rem;
-        padding-top:5px;
-    }
+@media screen and (min-width: 765px) and (max-width: 1024px) {
+  .card {
+    font-size: 14px;
+  }
+  .card img {
+    width: 100px;
+    height: 150px;
+  }
+
+  .livre-identifier {
+    font-size: 14px;
+  }
+
+  .card-title {
+    min-height: 2em;
+    font-size: 16px;
+  }
+
+  .card-body {
+    padding-bottom: 0rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .h2 {
+    font-size: 1.5rem;
+  }
+
+  .h3 {
+    font-size: 1.5rem;
+  }
+
+  #bookForm {
+    line-height: 1rem;
+    padding-top: 5px;
+  }
 }
 
+/*# sourceMappingURL=styles.css.map */
